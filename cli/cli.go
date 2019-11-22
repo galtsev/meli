@@ -217,12 +217,12 @@ func startComposeServices(ctx context.Context, cli *client.Client, dc *meli.Dock
 		5. Stream container logs
 	*/
 
-	if len(dc.ComposeService.Image) > 0 {
-		err := meli.PullDockerImage(ctx, cli, dc)
-		if err != nil {
-			return err
-		}
-	}
+	// if len(dc.ComposeService.Image) > 0 {
+	// 	err := meli.PullDockerImage(ctx, cli, dc)
+	// 	if err != nil {
+	// 		return err
+	// 	}
+	// }
 	alreadyCreated, _, err := meli.CreateContainer(ctx, cli, dc)
 	if err != nil {
 		return err
@@ -240,10 +240,10 @@ func startComposeServices(ctx context.Context, cli *client.Client, dc *meli.Dock
 		return err
 	}
 
-	err = meli.ContainerLogs(ctx, cli, dc)
-	if err != nil {
-		return err
-	}
+	// err = meli.ContainerLogs(ctx, cli, dc)
+	// if err != nil {
+	// 	return err
+	// }
 
 	return nil
 }
